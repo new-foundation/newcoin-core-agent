@@ -1,6 +1,6 @@
 {
   "name": "@newcoin-core/agent",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -22,5 +22,6 @@
     "webpack": "^5.69.1",
     "webpack-cli": "^4.9.2",
     "webpack-node-externals": "^3.0.0"
-  }
+  },
+  "keywords": ["agents","newcoin","social","ai","watts"]
 }
