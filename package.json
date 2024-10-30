@@ -1,0 +1,26 @@
+{
+  "name": "@newcoin-core/agent",
+  "version": "0.8.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js"
+  },
+  "author": "Igor Rubinovich <igor.rubinovich@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@newstackdev/iosdk-newgraph-client-js": "^1.9.252",
+    "@types/node": "^22.8.4",
+    "@types/ws": "^8.5.12",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "ts-loader": "^9.2.6",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
