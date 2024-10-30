@@ -1,5 +1,6 @@
 {
   "name": "@newcoin-core/agent",
+  "types": "./dist/index.d.ts",
   "version": "0.8.3",
   "description": "",
   "main": "index.js",
