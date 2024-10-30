@@ -22,7 +22,7 @@ These tokens will eventually get invalidated and replaced with api keys
 ```
 import NewcoinListener from "@newcoin-core/agent";
 
-const token = ""; # get it from 
+const token = ""; # see above
 
 NewcoinListener(token, async (msg: string) => {
     
