@@ -1,7 +1,5 @@
 import { NewcoinReaderAgent, NewcoinWriterAgent } from "./agents";
 import { NewcoinListener } from "./agents/listener";
-
 export { NewcoinListener, NewcoinReaderAgent, NewcoinWriterAgent };
 export default NewcoinListener;
-
-export const _ = "hi";
+export declare const _ = "hi";

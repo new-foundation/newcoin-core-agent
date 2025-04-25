@@ -22,7 +22,7 @@ These tokens will eventually get invalidated and replaced with api keys
 ```
 import NewcoinListener from "@newcoin-core/agent";
 
-const token = ""; # see above
+const token = ""; # see above. For jwt tokens obtained as described prefix with newsafe, e.g. for token xyz -> "newsafe xyz"
 
 NewcoinListener(token, async (msg: string) => {
     

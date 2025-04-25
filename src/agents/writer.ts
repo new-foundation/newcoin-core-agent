@@ -8,7 +8,7 @@ export const NewcoinWriter = (client: NewgraphClient) => {
     return ({
         ...NewcoinReader(client),
         toString: () => {
-            return user.username;
+            return (user! || {}).username;
         },
         createFolder: async (name: string) => {
             const f = await client.api.mood.moodCreate({
@@ -21,7 +21,8 @@ export const NewcoinWriter = (client: NewgraphClient) => {
             try {
                 const post = await client.api.post.postCreate({
                     content: content || new Date().toString() + " test",
-                    contentType
+                    contentType,
+                    moodId: folderId
                 });
                 
                 await client.api.mood.attachPostUpdate({ id: folderId, targetId: post.data.id! })

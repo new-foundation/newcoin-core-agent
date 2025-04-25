@@ -25,7 +25,12 @@ module.exports = {
     },
     output: {
         filename: x => x.chunk.name.replace('_', '-') + '.js',
-        library: '[name]',
+        // library: '[name]0',
+        libraryTarget: 'commonjs2',
         path: path.resolve(__dirname, 'dist'),
-    }
+    },
+    optimization: {
+        // Prevent any optimization, as we want CommonJS output
+        minimize: false,
+    },
 };

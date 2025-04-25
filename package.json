@@ -1,9 +1,9 @@
 {
   "name": "@newcoin-core/agent",
   "types": "./dist/index.d.ts",
-  "version": "0.8.4",
+  "main": "./dist/index.js",
+  "version": "0.8.2",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js"
@@ -11,7 +11,7 @@
   "author": "Igor Rubinovich <igor.rubinovich@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@newstackdev/iosdk-newgraph-client-js": "^1.9.252",
+    "@newstackdev/iosdk-newgraph-client-js": "^1.9.83",
     "@types/node": "^22.8.4",
     "@types/ws": "^8.5.12",
     "ts-node": "^10.9.2",
@@ -24,5 +24,11 @@
     "webpack-cli": "^4.9.2",
     "webpack-node-externals": "^3.0.0"
   },
-  "keywords": ["agents","newcoin","social","ai","watts"]
+  "keywords": [
+    "agents",
+    "newcoin",
+    "social",
+    "ai",
+    "watts"
+  ]
 }

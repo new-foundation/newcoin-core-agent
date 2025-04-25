@@ -7,6 +7,10 @@ export type WSState = {
   toggle: (token: string) => void;
   url: string;
   send: (msg: any) => void;
+  upgrade: (msg: any) => void;
+  "unexpected-response": (req: any, res: any) => void;
+
+
 };
 
 export const newgraphWebsocketsClientManager = (upd: (wsServer: string, token: string) => string) => {
@@ -71,11 +75,22 @@ export const newgraphWebsocketsClientManager = (upd: (wsServer: string, token: s
     open: [startPing, sendQueued, logConnected],
     close: [stopPing],
     error: [logError],
-    message: [processPong]
-
-  }
+    message: [processPong],
+    upgrade: [(res: any) : void => {
+      console.log('Upgrade response status:', res.statusCode);
+      console.log('Headers:', res.headers);
+    }],
+    'unexpected-response': [(req: any, res: any) : void => {
+      console.error('Unexpected response:', res.statusCode);
+      res.on('data', (chunk: any) => {
+        console.error('Body:', chunk.toString());
+      })
+    }]
+  } as any;
 
   const toggle = async (token: string) => {
+    debugger;
+    
     _token = token;
 
 

@@ -26,7 +26,10 @@ export const NewgraphApi = (() => {
     },
     async authorize(): Promise<UserReadPrivateResponse> {
       try {
+        console.log(`Authorizeing with token:${this.getCurrentToken()}`);
+
         const r = await _api.user.currentList();
+        console.log("Authorized as: ", r.data.username);
         return r.data;
       } catch (_ex) {
         const ex: { error: ErrorResponse } = _ex as any;
