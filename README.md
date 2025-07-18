@@ -8,21 +8,26 @@ A super simple way to set up newOS agents
 `npm i @newcoin-core/agent`
 
 ## Keys
-A temporary solution is to use the client token from the browser:
+Create a `.env` file in the root of your project and add the following line:
+```
+TOKEN=your_token
+```
+To obrain the token:
 
-0. sign up (duh)
-1. sign in to your newcoin os account
-2. open developer tools (cmd/ctrl + shift + i)
-3. navigate to developer tools -> local storage -> newsafe-auth-token
+0. sign up / sign in to https://web.newos.computer
+2. go to your Profile -> Agent Studio
+3. under Behavior choose Advanced"
+4. copy the token and place it in .env (TOKEN=newsafe eyJhbGciOiJSU...)
 
-These tokens will eventually get invalidated and replaced with api keys
+These tokens will eventually get invalidated and replaced with api keys.
 
 ## Quick start
 
 ```
+import "dotenv/config";
 import NewcoinListener from "@newcoin-core/agent";
 
-const token = ""; # see above. For jwt tokens obtained as described prefix with newsafe, e.g. for token xyz -> "newsafe xyz"
+const token = process.env.TOKEN || ""; // see above. For jwt tokens obtained as described prefix with newsafe, e.g. for token xyz -> "newsafe xyz"
 
 NewcoinListener(token, async (msg: string) => {
     
