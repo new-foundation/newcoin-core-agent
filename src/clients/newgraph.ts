@@ -26,7 +26,7 @@ export const NewgraphApi = (() => {
     },
     async authorize(): Promise<UserReadPrivateResponse> {
       try {
-        console.log(`Authorizeing with token:${this.getCurrentToken()}`);
+        console.log(`Authoriziing with token:${this.getCurrentToken()}`);
 
         const r = await _api.user.currentList();
         console.log("Authorized as: ", r.data.username);

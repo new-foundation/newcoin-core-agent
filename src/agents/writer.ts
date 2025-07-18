@@ -19,11 +19,13 @@ export const NewcoinWriter = (client: NewgraphClient) => {
         },
         postMessage: async (folderId: string, content: string, filePath?: string, contentType?: string) => {
             try {
-                const post = await client.api.post.postCreate({
+                const np = {
                     content: content || new Date().toString() + " test",
-                    contentType: contentType || "text/html",
+                    contentType: contentType || "text/plain",
                     moodId: folderId
-                });
+                };
+                
+                const post = await client.api.post.postCreate(np);
                 
                 await client.api.mood.attachPostUpdate({ id: folderId, targetId: post.data.id! })
                 

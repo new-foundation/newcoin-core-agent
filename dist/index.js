@@ -62,24 +62,24 @@ const NewcoinListener = (token, listener) => {
         }
         ;
         const data = JSON.parse(msg.data.toString());
-        // console.log("replying to: ", data.payload?.post?.content || "not replying")
+        const reqContent = data.payload?.post?.content?.trim().replace(/\<[^\>]+\>/g, "") || "";
+        console.log("replying to: ", reqContent || "not replying");
         if (data.type == "newgraph" && data?.payload?.message == "post_in_folder") {
-            const text = (data.payload?.post?.content || "").trim().replace(/\<[^\>]+\>/g, "");
+            const text = reqContent;
             if (DEBUG) {
                 console.log("Received: ", text);
             }
-            // console.log(user.current.username, "Received", data.payload)
             if (!text.startsWith(`/${user.current.username}`)) //"/igorrubinovich.nco"))
                 return Promise.resolve();
             if (listener) {
-                const _r = listener(text.trim().replace(new RegExp(`/${user.current.username}`), ""), writer);
+                const _r = listener(text, writer);
                 const r = _r instanceof Promise ? await _r : _r;
                 const rr = typeof r == "string" ? r : (r.filesPaths?.length ? r : r.content);
                 if (DEBUG)
                     console.log("Replying: ", rr);
                 if (typeof rr == "string") {
                     // await NewcoinWriter(agents[0]).postMessage(data.payload.folder.id!, "Hi, I'm a too basic bot. Cant tell you much but I can listen")
-                    await writer.postMessage(data.payload.folder.id, rr);
+                    await writer.postMessage(data.payload.folder.id, rr, "", "text/plain");
                     console.log("replied to: ", data.payload.post.content, 'in folder', data.payload.folder.id);
                 }
                 else {
@@ -171,11 +171,12 @@ const NewcoinWriter = (client) => {
         },
         postMessage: async (folderId, content, filePath, contentType) => {
             try {
-                const post = await client.api.post.postCreate({
+                const np = {
                     content: content || new Date().toString() + " test",
-                    contentType,
+                    contentType: contentType || "text/plain",
                     moodId: folderId
-                });
+                };
+                const post = await client.api.post.postCreate(np);
                 await client.api.mood.attachPostUpdate({ id: folderId, targetId: post.data.id });
                 if (filePath) {
                     const uploadInfo = await client.api.post.uploadCreate({ targetId: post.data.id, contentType: contentType || "image/jpeg", filename: filePath.split(/\//).at(-1) });
@@ -249,7 +250,7 @@ exports.NewgraphApi = (() => {
         },
         async authorize() {
             try {
-                console.log(`Authorizeing with token:${this.getCurrentToken()}`);
+                console.log(`Authoriziing with token:${this.getCurrentToken()}`);
                 const r = await _api.user.currentList();
                 console.log("Authorized as: ", r.data.username);
                 return r.data;
