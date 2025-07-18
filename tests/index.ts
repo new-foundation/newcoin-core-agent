@@ -13,8 +13,6 @@ NewcoinListener(token, async (msg: string) => {
     // 3. ask your cat...
     // 4. all of the above
 
-    
-
     // return `I heard you say: ${msg}`; // <-- optional for text-only replies
     return { 
         content: `I heard you say: ${msg}`,
