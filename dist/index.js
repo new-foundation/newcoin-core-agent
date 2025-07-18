@@ -64,10 +64,11 @@ const NewcoinListener = (token, listener) => {
         const data = JSON.parse(msg.data.toString());
         // console.log("replying to: ", data.payload?.post?.content || "not replying")
         if (data.type == "newgraph" && data?.payload?.message == "post_in_folder") {
-            const text = (data.payload?.post?.content || "").trim();
+            const text = (data.payload?.post?.content || "").trim().replace(/\<[^\>]+\>/g, "");
             if (DEBUG) {
                 console.log("Received: ", text);
             }
+            // console.log(user.current.username, "Received", data.payload)
             if (!text.startsWith(`/${user.current.username}`)) //"/igorrubinovich.nco"))
                 return Promise.resolve();
             if (listener) {
