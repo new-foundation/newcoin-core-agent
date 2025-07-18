@@ -21,7 +21,7 @@ export const NewcoinWriter = (client: NewgraphClient) => {
             try {
                 const post = await client.api.post.postCreate({
                     content: content || new Date().toString() + " test",
-                    contentType,
+                    contentType: contentType || "text/html",
                     moodId: folderId
                 });
                 

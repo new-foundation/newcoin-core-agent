@@ -3,6 +3,8 @@ import { NewcoinListener } from "..";
 
 import "dotenv/config";
 
+
+// import { GoogleGenerativeAI } from "@google/generative-ai";
 const token = process.env.TOKEN || "";
 
 NewcoinListener(token, async (msg: string) => {
