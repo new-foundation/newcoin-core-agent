@@ -9,7 +9,8 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "postinstall": "echo \"Thanks for installing @newcoin-core/agent! Find more info at https://www.npmjs.com/package/@newcoin-core/agent. Don't forget to cd into your project directory and run 'npm i' to install dependencies.\""
   },
   "author": "Igor Rubinovich <igor.rubinovich@gmail.com>",
   "license": "MIT",
