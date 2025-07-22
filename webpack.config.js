@@ -16,7 +16,7 @@ module.exports = {
                     loader: 'ts-loader',
                     options: { configFile: 'tsconfig.json' }
                 },
-                exclude: /node_modules|fs/,
+                exclude: /node_modules|fs|templates/,
             }
         ]
     },

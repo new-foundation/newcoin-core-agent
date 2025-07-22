@@ -382,6 +382,56 @@ exports.newgraphWebsocketsClientManager = newgraphWebsocketsClientManager;
 
 /***/ }),
 
+/***/ 229:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+//#!/usr/bin/env node
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports._ = exports.NewcoinWriterAgent = exports.NewcoinReaderAgent = exports.NewcoinListener = void 0;
+const agents_1 = __webpack_require__(32);
+Object.defineProperty(exports, "NewcoinReaderAgent", ({ enumerable: true, get: function () { return agents_1.NewcoinReaderAgent; } }));
+Object.defineProperty(exports, "NewcoinWriterAgent", ({ enumerable: true, get: function () { return agents_1.NewcoinWriterAgent; } }));
+const listener_1 = __webpack_require__(234);
+Object.defineProperty(exports, "NewcoinListener", ({ enumerable: true, get: function () { return listener_1.NewcoinListener; } }));
+const fs_1 = __importDefault(__webpack_require__(896));
+const path_1 = __importDefault(__webpack_require__(928));
+exports["default"] = listener_1.NewcoinListener;
+const args = process.argv.slice(2);
+const templateArgIndex = args.findIndex((arg) => arg === "--template");
+if (templateArgIndex !== -1 && args.length > templateArgIndex + 1) {
+    const templateName = args[templateArgIndex + 1];
+    const projectName = args[templateArgIndex + 2];
+    const templateDir = path_1.default.resolve(__dirname, "..", "templates", templateName);
+    const targetDir = projectName ? path_1.default.join(process.cwd(), projectName) : process.cwd();
+    if (fs_1.default.existsSync(templateDir)) {
+        if (projectName) {
+            fs_1.default.mkdirSync(targetDir, { recursive: true });
+        }
+        console.log(`Creating a new project in ${targetDir} from template ${templateName}...`);
+        fs_1.default.cpSync(templateDir, targetDir, { recursive: true });
+        if (projectName) {
+            const packageJsonPath = path_1.default.join(targetDir, "package.json");
+            if (fs_1.default.existsSync(packageJsonPath)) {
+                const packageJson = JSON.parse(fs_1.default.readFileSync(packageJsonPath, "utf-8"));
+                packageJson.name = projectName;
+                fs_1.default.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
+            }
+        }
+        console.log("Done.");
+    }
+    else {
+        console.error(`Template ${templateName} not found.`);
+    }
+}
+exports._ = "hi";
+
+
+/***/ }),
+
 /***/ 135:
 /***/ ((module) => {
 
@@ -396,10 +446,24 @@ module.exports = require("ws");
 
 /***/ }),
 
+/***/ 896:
+/***/ ((module) => {
+
+module.exports = require("fs");
+
+/***/ }),
+
 /***/ 943:
 /***/ ((module) => {
 
 module.exports = require("fs/promises");
+
+/***/ }),
+
+/***/ 928:
+/***/ ((module) => {
+
+module.exports = require("path");
 
 /***/ })
 
@@ -430,23 +494,12 @@ module.exports = require("fs/promises");
 /******/ 	}
 /******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it uses a non-standard name for the exports (exports).
-(() => {
-var exports = __webpack_exports__;
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports._ = exports.NewcoinWriterAgent = exports.NewcoinReaderAgent = exports.NewcoinListener = void 0;
-const agents_1 = __webpack_require__(32);
-Object.defineProperty(exports, "NewcoinReaderAgent", ({ enumerable: true, get: function () { return agents_1.NewcoinReaderAgent; } }));
-Object.defineProperty(exports, "NewcoinWriterAgent", ({ enumerable: true, get: function () { return agents_1.NewcoinWriterAgent; } }));
-const listener_1 = __webpack_require__(234);
-Object.defineProperty(exports, "NewcoinListener", ({ enumerable: true, get: function () { return listener_1.NewcoinListener; } }));
-exports["default"] = listener_1.NewcoinListener;
-exports._ = "hi";
-
-})();
-
-module.exports = __webpack_exports__;
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	var __webpack_exports__ = __webpack_require__(229);
+/******/ 	module.exports = __webpack_exports__;
+/******/ 	
 /******/ })()
 ;

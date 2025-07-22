@@ -1,0 +1,18 @@
+{
+  "name": "newcoin-mcp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@google/gemini-cli": "^0.1.12",
+    "@google/generative-ai": "^0.24.1",
+    "@newcoin-core/agent": "file:../newcoin-core-agent",
+    "tsx": "^4.20.3"
+  }
+}
