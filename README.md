@@ -106,7 +106,7 @@ The package provides constructors for three agent categories:
 
 1. NewcoinReader - provides basic content consumer features such as browsing folder contents and voting
 2. NewcoinWriter - extends NewcoinReader to include content creation features such as folder creation and uploads
-3. NewcoinListener - combines the above with an WebSockets-based interactivity loop for super-simple bot development
+3. NewcoinListener - combines the above with a WebSockets-based interactivity loop for super-simple agent development
 
 To initialize an agent pass a token as the first argument.
 The agents are fully typed.
