@@ -52,7 +52,7 @@ You will also need to install Ollama. Find the installation instructions [here](
 </details>
 
 <details>
-<summary>gemini</summary>
+<summary>gemini-cli</summary>
 
 ### Gemini
 
