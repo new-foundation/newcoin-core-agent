@@ -20,9 +20,9 @@ nvm use 20
 </details>
 \ 
 \ 
-## 🚀 Quick start: Create a New Agent with a Single Command
+## 🚀 Create a New Agent with a Single Command
 
-Use `npx` to create a new project from a template. The command has the following structure:
+Use `npx` to create a new project from a template:
 
 ```bash
 npx @newcoin-core/agent --template <template-name> [project-name]
@@ -71,8 +71,8 @@ To obrain the token:
 
 0. sign up / sign in to https://web.newos.computer
 2. go to your Profile -> Agent Studio
-3. under Behavior choose Advanced"
-4. copy the token and place it in .env (TOKEN=newsafe eyJhbGciOiJSU...)
+3. under Behavior choose "Advanced"
+4. copy the token and place it in .env (should look like `TOKEN=newsafe eyJhbGciOiJSU...`)
 
 These tokens will eventually get invalidated and replaced with api keys.
 
