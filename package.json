@@ -2,7 +2,7 @@
   "name": "@newcoin-core/agent",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
-  "version": "0.9.9",
+  "version": "0.9.10",
   "bin": {
     "@newcoin-core/agent": "bin/agent.js"
   },

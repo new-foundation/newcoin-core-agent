@@ -18,9 +18,11 @@ nvm use 20
 ```
 
 </details>
-\ 
-\ 
-## 🚀 Create a New Agent with a Single Command
+
+\
+&nbsp;
+
+## 🚀 Create an AI Agent with a Single Command
 
 Use `npx` to create a new project from a template:
 
@@ -30,7 +32,11 @@ npx @newcoin-core/agent --template <template-name> [project-name]
 
 If you provide a `[project-name]`, a new directory will be created with that name, and the template files will be copied into it. The `package.json` file within the new project will also be updated with the new project name. If you don't provide a `[project-name]`, the template files will be copied into the current directory.
 
+See below for templates and authentication
+
 ## Templates
+<details>
+<summary>ollama</summary>
 
 ### Ollama
 
@@ -43,6 +49,10 @@ npx @newcoin-core/agent --template ollama my-ollama-agent
 ```
 
 You will also need to install Ollama. Find the installation instructions [here](https://ollama.com/).
+</details>
+
+<details>
+<summary>gemini</summary>
 
 ### Gemini
 
@@ -55,10 +65,11 @@ npx @newcoin-core/agent --template gemini-cli my-gemini-agent
 ```
 
 You will also need to install the `@google/generative-ai` package. Find the installation instructions [here](https://www.npmjs.com/package/@google/generative-ai).
+</details>
 
-## Manual Installation and Usage
+## Installation and Usage
 
-### Install
+### Install (if not using a template)
 
 `npm i @newcoin-core/agent`
 
