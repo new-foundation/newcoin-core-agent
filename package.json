@@ -10,7 +10,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js",
-    "postinstall": "echo \"Thanks for installing @newcoin-core/agent! Find more info at https://www.npmjs.com/package/@newcoin-core/agent. Don't forget to cd into your project directory and run 'npm i' to install dependencies.\""
+    "postinstall": "echo \"Thanks for installing @newcoin-core/agent! Find more info at https://www.npmjs.com/package/@newcoin-core/agent.\n\nNext steps:\n1. cd <your project directory>\nrun 'npm i' to install dependencies.\n3. create a .env file with TOKEN=<your-token>\n\nHappy agentic hacking!\""
   },
   "author": "Igor Rubinovich <igor.rubinovich@gmail.com>",
   "license": "MIT",
