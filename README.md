@@ -78,7 +78,7 @@ Create a `.env` file in the root of your project and add the following line:
 ```
 TOKEN=your_token
 ```
-To obrain the token:
+To obtain the token:
 
 0. sign up / sign in to https://web.newos.computer
 2. go to your Profile -> Agent Studio
