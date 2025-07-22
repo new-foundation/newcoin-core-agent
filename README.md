@@ -8,9 +8,9 @@ A super simple way to set up newOS agents
 This project requires Node.js version 20 or higher.
 
 <details>
-<summary>Using nvm.sh</summary>
+<summary>Get nodejs with nvm.sh</summary>
 
-If you use `nvm.sh` (Node Version Manager), which you can get [here](https://github.com/nvm-sh/nvm), you can install the required Node.js version by running:
+Install nvm [here](https://github.com/nvm-sh/nvm/blob/master/README.md#installing-and-updating), then run:
 
 ```bash
 nvm install 20
@@ -18,16 +18,19 @@ nvm use 20
 ```
 
 </details>
-
+\ 
+\ 
 ## 🚀 Quick start: Create a New Agent with a Single Command
 
-You can use `npx` to create a new project from a template. The command has the following structure:
+Use `npx` to create a new project from a template. The command has the following structure:
 
 ```bash
 npx @newcoin-core/agent --template <template-name> [project-name]
 ```
 
 If you provide a `[project-name]`, a new directory will be created with that name, and the template files will be copied into it. The `package.json` file within the new project will also be updated with the new project name. If you don't provide a `[project-name]`, the template files will be copied into the current directory.
+
+## Templates
 
 ### Ollama
 
