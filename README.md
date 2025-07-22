@@ -42,7 +42,7 @@ To create a new project from this template, run the following command:
 npx @newcoin-core/agent --template ollama my-ollama-agent
 ```
 
-You will also need to install Ollama. You can find the installation instructions [here](https://ollama.com/).
+You will also need to install Ollama. Find the installation instructions [here](https://ollama.com/).
 
 ### Gemini
 
@@ -54,7 +54,7 @@ To create a new project from this template, run the following command:
 npx @newcoin-core/agent --template gemini-cli my-gemini-agent
 ```
 
-You will also need to install the `@google/generative-ai` package. You can find the installation instructions [here](https://www.npmjs.com/package/@google/generative-ai).
+You will also need to install the `@google/generative-ai` package. Find the installation instructions [here](https://www.npmjs.com/package/@google/generative-ai).
 
 ## Manual Installation and Usage
 
